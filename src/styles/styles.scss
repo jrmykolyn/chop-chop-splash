@@ -1,4 +1,12 @@
+// IMPORTS
+@import 'mq';
+
 // VARS
+// Media queries
+$base: 0px;
+$mobile: 600px;
+$tablet: 768px;
+
 // Layout
 $base-width: 92%;
 
@@ -35,7 +43,7 @@ body {
     padding: 8rem 0 6rem;
 
     // Media queries
-    @media ( min-width: 768px ) {
+    @include mq( $from: $tablet ) {
         font-size: 2rem;
     }
 
@@ -159,19 +167,19 @@ img {
     text-align: center;
 
     // Media queries
-    @media ( min-width: 600px ) {
+    @include mq( $from: $mobile ) {
         display: block;
         width: 12%;
     }
 
-    @media ( min-width: 768px ) {
+    @include mq( $from: $tablet ) {
         width: 8%;
     }
 }
 
 .type {
     // Media queries
-    @media ( min-width: 600px ) {
+    @include mq( $from: $mobile ) {
         border-left: 0.2rem solid $color--brand;
     }
 }
@@ -184,12 +192,12 @@ img {
     text-overflow: ellipsis;
 
     // Media queries
-    @media ( min-width: 600px ) {
+    @media ( min-width: $mobile ) {
         border-left: 0.2rem solid $color--brand;
         margin-left: 12%;
     }
 
-    @media ( min-width: 768px ) {
+    @media ( min-width: $tablet ) {
         margin-left: 8%;
     }
 }
@@ -218,7 +226,7 @@ img {
     padding-left: 0.5rem;
 
     // Media queries
-    @media ( min-width: 768px ) {
+    @media ( min-width: $tablet ) {
         width: 8%;
         border-left: 0.2rem solid $color--brand;
         padding-left: 1rem;
