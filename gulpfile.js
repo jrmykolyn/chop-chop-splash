@@ -48,6 +48,9 @@ gulp.task( 'styles', function() {
 	gulp.src( './src/styles/styles.scss' )
 		.pipe( sass( {
 			outputStyle: 'expanded',
+			includePaths: [
+				'./node_modules/sass-mq'
+			],
 		} ) )
 		.pipe( gulp.dest( './dist/css' ) );
 } );
