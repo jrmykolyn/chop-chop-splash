@@ -1,0 +1,44 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        link(
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Cousine:400,700"
+        )
+        link(
+            rel="stylesheet"
+            href="./css/styles.css"
+        )
+    body
+        section(class="preheader")
+            h3 Website Coming Soon
+        header
+            a(
+                class="brand"
+                href="/"
+            )
+                img(
+                    src="./assets/logos/chop-chop.svg"
+                    alt="Chop Chop logo"
+                )
+            div(class="contact-info")
+                address #{contactInfo.address}
+                a(href="tel:0" + contactInfo.phoneNumber.raw) #{contactInfo.phoneNumber.display}
+                a(href=contactInfo.website.raw) #{contactInfo.website.display}
+        main
+            div(class="menu")
+                for item, i in menuItems
+                    div(class="menu-row")
+                        p(class="quantity") Qty
+                        h2(class="type") #{item.type}
+                    for dish, j in item.dishes
+                        div(class="menu-row--item")
+                            div(class="dish")
+                                p(class="dish__index") #{dish.index}.
+                                p(class="dish__name")
+                                    span(class="dish__name__zh") #{dish.nameZh}
+                                    strong(class="dish__name__en") #{dish.nameEn}
+                            p(class="price") $#{dish.price}
+        footer
+            p(class="tagline") #{tagline}
