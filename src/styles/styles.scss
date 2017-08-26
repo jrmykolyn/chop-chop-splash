@@ -21,6 +21,7 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    // Descendant elems.
     * {
         font-size: inherit;
     }
@@ -38,6 +39,7 @@ body {
         font-size: 2rem;
     }
 
+    // Descendant elems.
     * {
         font-size: 1em;
         line-height: 1.4;
@@ -93,6 +95,7 @@ img {
     display: block;
     margin: 0 auto 3rem;
 
+    // Descendant elems.
     img {
         width: 100%;
     }
@@ -104,6 +107,7 @@ img {
     display: block;
     margin: 0 auto;
 
+    // Descendant elems.
     * {
         display: block;
         color: inherit;
@@ -124,16 +128,11 @@ img {
     flex-direction: row;
     flex-wrap: nowrap;
 
+    // Positional styles
     &:not( :last-child ) {
         border-bottom: 0.2rem solid $color--brand;
     }
 }
-
-.menu-row {
-
-}
-
-.menu-row--item {}
 
 .quantity,
 .type,
@@ -181,11 +180,8 @@ img {
     flex-grow: 1;
     display: flex;
     justify-content: flex-start;
-
     overflow: hidden;
-
     text-overflow: ellipsis;
-    // white-space: nowrap;
 
     // Media queries
     @media ( min-width: 600px ) {
