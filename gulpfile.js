@@ -52,7 +52,7 @@ gulp.task( 'styles', function() {
 				'./node_modules/sass-mq'
 			],
 		} ) )
-		.pipe( gulp.dest( './dist/css' ) );
+		.pipe( gulp.dest( './public/css' ) );
 } );
 
 /**
@@ -65,19 +65,25 @@ gulp.task( 'scripts', function() {
 /**
  * Wrapper around any/all view-related tasks.
  */
-gulp.task( 'views', function() {
+gulp.task( 'views', [ 'views:compile', 'views:migrate' ] );
+
+gulp.task( 'views:compile', function() {
 	gulp.src( './src/views/*.pug' )
 		.pipe( pug( {
 			locals: data,
 		} ) )
-		.pipe( gulp.dest( './dist' ) );
+		.pipe( gulp.dest( './' ) );
 } );
 
+gulp.task( 'views:migrate', function() {
+	gulp.src( './src/views/*.!(pug)' )
+		.pipe( gulp.dest( './' ) );
+} );
 
 /**
  * Wrapper around any/all asset-related tasks.
  */
  gulp.task( 'assets', function() {
 	 gulp.src( './src/assets/**/*' )
-	 	.pipe( gulp.dest( './dist/assets/' ) )
+	 	.pipe( gulp.dest( './public/assets/' ) )
  } )
